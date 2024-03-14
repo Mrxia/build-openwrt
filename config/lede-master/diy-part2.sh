@@ -19,10 +19,14 @@ sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package
 echo "DISTRIB_SOURCECODE='lede'" >>package/base-files/files/etc/openwrt_release
 
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 192.168.31.4）
-# sed -i 's/192.168.1.1/192.168.31.4/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.31.1/g' package/base-files/files/bin/config_generate
+sed -i "s/OpenWrt /Ryan build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
+sed -i 's/or "1"%>/or "1"%> ( <%=luci.sys.exec("expr `cat \/sys\/class\/thermal\/thermal_zone0\/temp` \/ 1000") or "?"%> \&#8451; ) /g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
+sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package/base-files/files/etc/sysctl.conf
 
 # Replace the default software source
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
+
 #
 # ------------------------------- Main source ends -------------------------------
 
