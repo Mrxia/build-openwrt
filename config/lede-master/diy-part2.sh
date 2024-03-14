@@ -33,7 +33,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package
 # ------------------------------- Other started -------------------------------
 #
 # Add luci-app-amlogic
-svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+#svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 
 # Fix runc version error
 # rm -rf ./feeds/packages/utils/runc/Makefile
