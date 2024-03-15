@@ -23,7 +23,7 @@ sed -i 's/192.168.1.1/192.168.31.1/g' package/base-files/files/bin/config_genera
 # 修改系统名
 sed -i 's/OpenWrt/OpenWrt/g' package/base-files/files/bin/config_generate
 # 自定义版本号
-sed -i "s/OpenWrt /Ryan build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lede/default-settings/files/zzz-default-settings
+sed -i "s/OpenWrt /Ryan build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 #添加温度显示
 sed -i 's/or "1"%>/or "1"%> ( <%=luci.sys.exec("expr `cat \/sys\/class\/thermal\/thermal_zone0\/temp` \/ 1000") or "?"%> \&#8451; ) /g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 #修正连接数（by ベ七秒鱼ベ）
