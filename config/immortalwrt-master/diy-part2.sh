@@ -35,7 +35,7 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package
 # svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 svn co https://github.com/EOYOHOO/UA2F.git package/UA2F
 svn co https://github.com/EOYOHOO/rkp-ipid.git package/rkp-ipid
-svn co https://github.com/linkease/istore.git package/ istore
+svn co https://github.com/linkease/istore.git package/istore
 
 # Apply patch
 # git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
