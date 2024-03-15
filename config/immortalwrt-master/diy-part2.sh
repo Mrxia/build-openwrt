@@ -16,7 +16,7 @@ sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package
 echo "DISTRIB_SOURCECODE='immortalwrt'" >>package/base-files/files/etc/openwrt_release
 
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 192.168.31.4）
-
+sed -i 's/192.168.1.1/192.168.31.1/g' package/base-files/files/bin/config_generate
 #
 # ------------------------------- Main source ends -------------------------------
 
@@ -28,7 +28,7 @@ svn co https://github.com/EOYOHOO/UA2F.git package/UA2F
 svn co https://github.com/EOYOHOO/rkp-ipid.git package/rkp-ipid
 svn co https://github.com/linkease/istore.git package/istore
 
-sed -i 's/192.168.1.1/192.168.31.1/g' package/base-files/files/bin/config_generate
+
 # 修改系统名
 sed -i 's/OpenWrt/OpenWrt/g' package/base-files/files/bin/config_generate
 # 自定义版本号
