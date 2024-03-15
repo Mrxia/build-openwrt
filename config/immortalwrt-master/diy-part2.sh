@@ -24,9 +24,9 @@ sed -i 's/192.168.1.1/192.168.31.1/g' package/base-files/files/bin/config_genera
 #
 # Add luci-app-amlogic
 # svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
-svn co https://github.com/EOYOHOO/UA2F.git package/UA2F
-svn co https://github.com/EOYOHOO/rkp-ipid.git package/rkp-ipid
-svn co https://github.com/linkease/istore.git package/istore
+svn co https://github.com/EOYOHOO/UA2F package/UA2F
+svn co https://github.com/EOYOHOO/rkp-ipid package/rkp-ipid
+svn co https://github.com/linkease/istore package/istore
 
 
 # 修改系统名
