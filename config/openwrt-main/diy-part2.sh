@@ -36,6 +36,9 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package
 # coolsnowwolf default software package replaced with Lienol related software package
 # rm -rf feeds/packages/utils/{containerd,libnetwork,runc,tini}
 # svn co https://github.com/Lienol/openwrt-packages/trunk/utils/{containerd,libnetwork,runc,tini} feeds/packages/utils
+svn co https://github.com/EOYOHOO/UA2F.git package/UA2F
+svn co https://github.com/EOYOHOO/rkp-ipid.git package/rkp-ipid
+svn co https://github.com/linkease/istore.git package/ istore
 
 # Add third-party software packages (The entire repository)
 # git clone https://github.com/libremesh/lime-packages.git package/lime-packages
