@@ -17,14 +17,7 @@ echo "DISTRIB_SOURCECODE='official'" >>package/base-files/files/etc/openwrt_rele
 
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 192.168.31.4）
 sed -i 's/192.168.1.1/192.168.31.1/g' package/base-files/files/bin/config_generate
-# 修改系统名
-sed -i 's/OpenWrt/OpenWrt/g' package/base-files/files/bin/config_generate
-# 自定义版本号
-sed -i "s/OpenWrt /Ryan build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/openwrt/default-settings/files/zzz-default-settings
-#添加温度显示
-sed -i 's/or "1"%>/or "1"%> ( <%=luci.sys.exec("expr `cat \/sys\/class\/thermal\/thermal_zone0\/temp` \/ 1000") or "?"%> \&#8451; ) /g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
-#修正连接数（by ベ七秒鱼ベ）
-sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package/base-files/files/etc/sysctl.conf
+
 #
 # ------------------------------- Main source ends -------------------------------
 
@@ -36,9 +29,18 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package
 # coolsnowwolf default software package replaced with Lienol related software package
 # rm -rf feeds/packages/utils/{containerd,libnetwork,runc,tini}
 # svn co https://github.com/Lienol/openwrt-packages/trunk/utils/{containerd,libnetwork,runc,tini} feeds/packages/utils
-svn co https://github.com/EOYOHOO/UA2F.git package/UA2F
-svn co https://github.com/EOYOHOO/rkp-ipid.git package/rkp-ipid
-svn co https://github.com/linkease/istore.git package/ istore
+svn co https://github.com/EOYOHOO/UA2F package/UA2F
+svn co https://github.com/EOYOHOO/rkp-ipid package/rkp-ipid
+svn co https://github.com/linkease/istore package/istore
+
+# 修改系统名
+sed -i 's/OpenWrt/OpenWrt/g' package/base-files/files/bin/config_generate
+# 自定义版本号
+sed -i "s/OpenWrt /Ryan build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/openwrt/default-settings/files/zzz-default-settings
+#添加温度显示
+sed -i 's/or "1"%>/or "1"%> ( <%=luci.sys.exec("expr `cat \/sys\/class\/thermal\/thermal_zone0\/temp` \/ 1000") or "?"%> \&#8451; ) /g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
+#修正连接数（by ベ七秒鱼ベ）
+sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package/base-files/files/etc/sysctl.conf
 
 # Add third-party software packages (The entire repository)
 # git clone https://github.com/libremesh/lime-packages.git package/lime-packages
